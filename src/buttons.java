@@ -4,74 +4,132 @@ import java.awt.Font;
 import javax.swing.*;
 
 public class buttons {
-
-    JButton[] buttons = new JButton[9];
-    JButton[][] bts = new JButton [3][3];
-    JLabel whoIsTurn = new JLabel();
-    Object obj = new click().getText();
+	
+    static JButton[][] buttons = new JButton [3][3];
+    static JLabel turn = new JLabel();
 	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
 	String XorO="";
-	final click c = new click();
-
-    
-public buttons(){
-	int x=10,y=10;	//The position for the buttons
 	ticTacToe ttt = new ticTacToe();
-	ttt.scorePanel.add(whoIsTurn);
+	int x=10,y=10;
+	static String[][] grid=new String[3][3];
+	static boolean winner= false;
+	private static JFrame frame = new JFrame();
+	static int count= 0;
+	
+	public buttons(JFrame frame){
+		//The position for the buttons
+	ttt.scorePanel.add(turn);
+	turn.setBounds (50, 150, 300, 50);
+	turn.setFont(font);
+	this.frame=frame;
+	addButtons();
+}
 
-	whoIsTurn.setBounds (50, 150, 300, 50);
-	whoIsTurn.setFont(font);
-	/*for (int k=0;k<buttons.length;k++)		// setting up the position for the buttons
-	{
-		buttons[k] = new JButton();
+
+public static void whoIsWinner()	// getting who is winning the game
+{ 
+	
 		
-		ttt.panel.add(buttons[k]);
-		buttons[k].setBackground(Color.decode("#FFFFFF"));
-
-		buttons[k].setBounds(x, y, 64, 64);
-		x = x + 66;
-		if (x > 142)
+			for(int i = 0; i < buttons.length; i++)
 		{
-			x=10;
-			y=y+66;
-		}
-		buttons[k].addActionListener( new click(buttons[k],whoIsTurn));
+			if(grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][0]!= null)
+			{
+				turn.setText(grid[i][0] + " Won");
+				disableButtons(grid);
+				restart res = new restart(frame);
+				
+				break;
+			}
+			else if(grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i] && grid[0][i]!= null)
+			{
+				turn.setText(grid[0][i] + " Won");
+				disableButtons(grid);
+				restart res = new restart(frame);
+				break;
+			}
+			else if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0]!= null)
+			{
+				turn.setText(grid[0][0] + " Won");
+				disableButtons(grid);
+				restart res = new restart(frame);
+				
+				break;
+			}
+			else if (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0] && grid[0][2]!= null) 
+			{
+				turn.setText(grid[0][2] + " Won");
+				disableButtons(grid);
+				restart res = new restart(frame);
+				break;
+			}
+			
+			else
+			{
+				count = count + 1;
+				//break;
+			}
+		
 	}
-	*/
-	for (int i=0;i<bts.length;i++)
+			if (count ==27)
+			{
+				turn.setText("DRAW ");
+				disableButtons(grid);
+				restart res = new restart(frame);
+				
+			}
+			
+}
+public  void addButtons()	// getting who is winning the game
+{
+	for (int i=0;i<buttons.length;i++)
 	{
-		for (int j=0;j<bts.length;j++)
+		for (int j=0;j<buttons.length;j++)
 		{
-			bts[i][j] = new JButton();
-			ttt.panel.add(bts[i][j]);
-			bts[i][j].setBackground(Color.decode("#FFFFFF"));
+			
+			buttons[i][j] = new JButton();
+			ttt.panel.add(buttons[i][j]);
+			buttons[i][j].setBackground(Color.decode("#FFFFFF"));
 
-			bts[i][j].setBounds(x, y, 64, 64);
+			buttons[i][j].setBounds(x, y, 64, 64);
 			x = x + 66;
 			if (x > 142)
 			{
 				x=10;
 				y=y+66;
-			}
+			}	
 
-			bts[i][j].addActionListener( new click(bts[i][j],whoIsTurn));
+			buttons[i][j].addActionListener(new click(buttons[i][j],turn,i,j) );
+
 		}
 	}
 
 }
-
-
-public void whoIsWinner()	// getting who is winning the game
-{ 
-	///System.out.println("test"+c.getText());
-	if (buttons[0].getText() == "X" && buttons[1].getText() == "X" && buttons[2].getText() == "X")
+public static void disableButtons(String array[][])
+{
+	for(int i = 0; i< array.length; i ++)
 	{
-		System.out.println(buttons[0].getText()+" THAT WAS THE TEST");
-		whoIsTurn.setText("THE WINNER IS X");
-	}
-	else
-	{
-		System.out.println("FUCK THIS JAVA");
+		for(int j = 0; j< array.length; j ++)
+		{
+			buttons[i][j].setEnabled(false);
+		
+		}
+		
 	}
 }
+public static void enableButtons()
+{
+	for(int i = 0; i< 3; i ++)
+	{
+		for(int j = 0; j< 3; j ++)
+		{
+			buttons[i][j].setEnabled(true);
+			
+			//buttons[i][j].setText(null);
+
+		}
+		
+	}
+}
+
+
 }

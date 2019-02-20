@@ -6,7 +6,7 @@ import java.awt.*;
 import javax.swing.border.LineBorder;
 
 public class ticTacToe {
-	JFrame frame = new JFrame("Tic Tac Toe Game");
+	static JFrame frame = new JFrame("Tic Tac Toe Game");
 	JPanel panel = new JPanel(null);
 	JPanel scorePanel = new JPanel(null);
 	Color Color_panel = Color.decode("#E5E5E5");
@@ -18,7 +18,7 @@ public class ticTacToe {
 	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
 	public static void main(String[] args) {
 		
-		buttons btns = new buttons();
+		buttons btns = new buttons(frame);
 	
 	}
 	public ticTacToe()

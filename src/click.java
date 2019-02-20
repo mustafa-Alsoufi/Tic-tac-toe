@@ -2,21 +2,18 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
 import javax.swing.*;
 
 
 	public class click implements ActionListener 
 	{
-
-
 		private JButton button = new JButton();
-		String str= button.getText();
+		private int row;
+		private int column;
 		private JLabel label;
 		private static boolean player1=true, player2=false;
 		Font font = new Font("Segoe Script", Font.PLAIN, 27);
+		
 		public void actionPerformed(ActionEvent e) {
 
 			button.setFont(font);
@@ -35,21 +32,22 @@ import javax.swing.*;
 				button.setForeground(Color.RED);
 				player1 = true;
 				player2 = false;
+
 				button.removeActionListener(this);
 				label.setText("X's turn");
 			}
-			System.out.println(button.getText()+ " text");
-		}
-	
-		click()
-		{
-
+			
+				buttons.grid[row][column] = button.getText();
+				buttons.whoIsWinner();
+			
 		}
 		
-		public click(JButton button,JLabel label)
+		public click(JButton button,JLabel label,int i, int j)
 		{
 			this.button = button;
 			this.label = label;
+			this.row = i;
+			this.column = j;
 			
 		}
 
