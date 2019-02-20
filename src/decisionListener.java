@@ -13,7 +13,6 @@ public class decisionListener implements ActionListener {
 			for(int j = 0; j< 3; j ++)
 			{
 				buttons.buttons[i][j].setText("");
-			
 			}
 		}
 		buttons b = new buttons(frame);

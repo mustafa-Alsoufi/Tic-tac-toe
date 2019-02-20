@@ -10,7 +10,7 @@ public class buttons {
 	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
 	String XorO="";
 	ticTacToe ttt = new ticTacToe();
-	int x=10,y=10;
+	int x=10,y=120;
 	static String[][] grid=new String[3][3];
 	static boolean winner= false;
 	private static JFrame frame = new JFrame();
@@ -123,9 +123,6 @@ public static void enableButtons()
 		for(int j = 0; j< 3; j ++)
 		{
 			buttons[i][j].setEnabled(true);
-			
-			//buttons[i][j].setText(null);
-
 		}
 		
 	}
