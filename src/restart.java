@@ -2,7 +2,7 @@ import java.awt.Font;
 import javax.swing.*;
 
 public class restart {
-static JFrame restartFrame = new JFrame();
+static JFrame restartFrame = new JFrame("Restart");
 JPanel RestartPanel = new JPanel(null);
 JLabel restartLabel = new JLabel("Would you like to restart the game?");
 Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);

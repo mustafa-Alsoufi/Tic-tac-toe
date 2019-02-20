@@ -15,6 +15,7 @@ public class decisionListener implements ActionListener {
 				buttons.buttons[i][j].setText("");
 			}
 		}
+		ticTacToe tt = new ticTacToe();
 		buttons b = new buttons(frame);
 		frame.setVisible(false);
 		

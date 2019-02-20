@@ -38,7 +38,7 @@ import javax.swing.*;
 			}
 			
 				buttons.grid[row][column] = button.getText();
-				buttons.whoIsWinner();
+				buttons.whoIsTheWinner();
 			
 		}
 		
@@ -50,16 +50,6 @@ import javax.swing.*;
 			this.column = j;
 			
 		}
-
-		public String getText()
-		{
-			return button.getText();
-		}
-		
-		
-		
-		
-
 	
 }
 

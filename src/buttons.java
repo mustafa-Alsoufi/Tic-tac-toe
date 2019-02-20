@@ -26,11 +26,11 @@ public class buttons {
 }
 
 
-public static void whoIsWinner()	// getting who is winning the game
+public static void whoIsTheWinner()	// getting who is winning the game.
 { 
 	
-		
-			for(int i = 0; i < buttons.length; i++)
+		// If any row has been filled with the same text.
+			for(int i = 0; i < buttons.length; i++)	
 		{
 			if(grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][0]!= null)
 			{
@@ -40,13 +40,17 @@ public static void whoIsWinner()	// getting who is winning the game
 				
 				break;
 			}
-			else if(grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i] && grid[0][i]!= null)
+		
+		// If any Column has been filled with the same text.
+			else if(grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i] && grid[0][i]!= null) 
 			{
 				turn.setText(grid[0][i] + " Won");
 				disableButtons(grid);
 				restart res = new restart(frame);
 				break;
 			}
+		
+		// If left diagonal has been filled with the same text.
 			else if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0]!= null)
 			{
 				turn.setText(grid[0][0] + " Won");
@@ -55,6 +59,8 @@ public static void whoIsWinner()	// getting who is winning the game
 				
 				break;
 			}
+		
+		// If right diagonal has been filled with the same text.
 			else if (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0] && grid[0][2]!= null) 
 			{
 				turn.setText(grid[0][2] + " Won");
@@ -66,10 +72,10 @@ public static void whoIsWinner()	// getting who is winning the game
 			else
 			{
 				count = count + 1;
-				//break;
 			}
 		
 	}
+			// To check if no one has won the game.
 			if (count ==27)
 			{
 				turn.setText("DRAW ");
@@ -79,7 +85,7 @@ public static void whoIsWinner()	// getting who is winning the game
 			}
 			
 }
-public  void addButtons()	// getting who is winning the game
+public  void addButtons()	// Add buttons to the panel
 {
 	for (int i=0;i<buttons.length;i++)
 	{
@@ -104,6 +110,7 @@ public  void addButtons()	// getting who is winning the game
 	}
 
 }
+// Disable all the buttons
 public static void disableButtons(String array[][])
 {
 	for(int i = 0; i< array.length; i ++)
@@ -116,6 +123,7 @@ public static void disableButtons(String array[][])
 		
 	}
 }
+// Enable all the buttons
 public static void enableButtons()
 {
 	for(int i = 0; i< 3; i ++)
