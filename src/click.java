@@ -41,6 +41,10 @@ import javax.swing.*;
 				buttons.whoIsTheWinner();
 			
 		}
+		public click()
+		{
+			
+		}
 		
 		public click(JButton button,JLabel label,int i, int j)
 		{

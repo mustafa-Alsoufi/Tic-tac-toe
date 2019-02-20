@@ -1,5 +1,3 @@
-
-
 import javax.swing.*;
 import java.net.URL;
 import java.awt.*;
@@ -19,9 +17,9 @@ public class ticTacToe {
 	// This is to add a logo to my game
 	
 	static JLabel logo = new JLabel();
-	static URL mainp = ticTacToe.class.getResource(
+	URL mainp = ticTacToe.class.getResource(
             "/img/2.jpg");
-	static ImageIcon pic = new ImageIcon(new ImageIcon(mainp)
+	ImageIcon pic = new ImageIcon(new ImageIcon(mainp)
 			.getImage().getScaledInstance(490, 100, Image.SCALE_SMOOTH));
 	
 	// the logo ends ^^
@@ -30,7 +28,7 @@ public class ticTacToe {
 	
 	public static void main(String[] args) {
 		
-		buttons btns = new buttons(frame);
+		buttons btns = new buttons();
 	
 	}
 	public ticTacToe()
@@ -48,9 +46,9 @@ public class ticTacToe {
 		panel.add(scorePanel);
 		scorePanel.setBounds(230,130,240,220);
 		scorePanel.setBackground(Color_panel);
-		xScore.setBounds(240, 130, 100, 50);
-		oScore.setBounds(240, 170, 100, 50);
-		dScore.setBounds(240, 220, 100, 50);
+		xScore.setBounds(290, 130, 100, 50);
+		oScore.setBounds(290, 170, 100, 50);
+		dScore.setBounds(290, 220, 100, 50);
 		logo.setBounds(0, 0, 490, 100);
 		panel.add(logo);
 		scorePanel.setBackground(Color.white);

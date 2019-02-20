@@ -16,9 +16,10 @@ public class decisionListener implements ActionListener {
 			}
 		}
 		ticTacToe tt = new ticTacToe();
-		buttons b = new buttons(frame);
+		buttons b = new buttons();
 		frame.setVisible(false);
-		
+	//	frame.dispose ();
+        ticTacToe.main (null);
 	}
 	public decisionListener(JFrame restartFrame)
 	{

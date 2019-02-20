@@ -10,16 +10,16 @@ public class buttons {
 	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
 	String XorO="";
 	ticTacToe ttt = new ticTacToe();
-	int x=10,y=120;
+	int x=50,y=120;
 	static String[][] grid=new String[3][3];
 	static boolean winner= false;
 	private static JFrame frame = new JFrame();
 	static int count= 0;
 	
-	public buttons(JFrame frame){
+	public buttons(){
 		//The position for the buttons
 	ttt.scorePanel.add(turn);
-	turn.setBounds (50, 150, 300, 50);
+	turn.setBounds (90, 150, 300, 50);
 	turn.setFont(font);
 	this.frame=frame;
 	addButtons();
@@ -34,8 +34,9 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 		{
 			if(grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][0]!= null)
 			{
-				turn.setText(grid[i][0] + " Won");
+				turn.setText(null);
 				disableButtons(grid);
+				JOptionPane.showMessageDialog(null, grid[i][0] + " wins the game!"); // To display the winner
 				restart res = new restart(frame);
 				
 				break;
@@ -44,8 +45,10 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 		// If any Column has been filled with the same text.
 			else if(grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i] && grid[0][i]!= null) 
 			{
-				turn.setText(grid[0][i] + " Won");
+
+				turn.setText(null);
 				disableButtons(grid);
+				JOptionPane.showMessageDialog(null, grid[0][i] + " wins the game!"); // To display the winner
 				restart res = new restart(frame);
 				break;
 			}
@@ -53,8 +56,10 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 		// If left diagonal has been filled with the same text.
 			else if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0]!= null)
 			{
-				turn.setText(grid[0][0] + " Won");
+
+				turn.setText(null);
 				disableButtons(grid);
+				JOptionPane.showMessageDialog(null, grid[0][0] + " wins the game!"); // To display the winner
 				restart res = new restart(frame);
 				
 				break;
@@ -63,8 +68,10 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 		// If right diagonal has been filled with the same text.
 			else if (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0] && grid[0][2]!= null) 
 			{
-				turn.setText(grid[0][2] + " Won");
+
+				turn.setText(null);
 				disableButtons(grid);
+				JOptionPane.showMessageDialog(null, grid[0][2] + " wins the game!"); // To display the winner
 				restart res = new restart(frame);
 				break;
 			}
@@ -78,7 +85,7 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 			// To check if no one has won the game.
 			if (count ==27)
 			{
-				turn.setText("DRAW ");
+				JOptionPane.showMessageDialog(null, " It's a tie!"); // To display it's a tie
 				disableButtons(grid);
 				restart res = new restart(frame);
 				
@@ -98,9 +105,9 @@ public  void addButtons()	// Add buttons to the panel
 
 			buttons[i][j].setBounds(x, y, 64, 64);
 			x = x + 66;
-			if (x > 142)
+			if (x > 182)
 			{
-				x=10;
+				x=50;
 				y=y+66;
 			}	
 
