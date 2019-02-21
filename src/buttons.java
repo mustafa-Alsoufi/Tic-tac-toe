@@ -14,16 +14,15 @@ public class buttons {
 	static int count= 0;
 	
 	public buttons(){
-		
-	ttt.panel.add(turn);
-	turn.setBounds (320, 280, 100, 50);
-	turn.setFont(font);
 	addButtons();
 }
 
 
-public  void addButtons()	// Add buttons to the panel
+public void addButtons()	// Add buttons to the panel
 {
+	ttt.panel.add(turn);
+	turn.setBounds (320, 280, 100, 50);
+	turn.setFont(font);
 	for (int i=0;i<buttons.length;i++)
 	{
 		for (int j=0;j<buttons.length;j++)
@@ -137,7 +136,11 @@ public static void enableButtons()
 	{
 		for(int j = 0; j< 3; j ++)
 		{
+			grid[i][j] = null;
 			buttons[i][j].setEnabled(true);
+			buttons[i][j].addActionListener(new click(buttons[i][j],turn,i,j) );
+
+			
 		}
 		
 	}

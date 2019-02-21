@@ -12,9 +12,7 @@ JButton yesB = new JButton("Yes");
 JButton noB = new JButton("No");
 public restart()
 {
-	ticTacToe ttt = new ticTacToe();
-	//frame.setVisible(false);
-	buttons.enableButtons();
+		
 	restartLabel.setFont(font);
 	restartFrame.setSize(512, 200);
 	restartFrame.setLocationRelativeTo(null);
@@ -26,6 +24,7 @@ public restart()
 	restartLabel.setBounds(100, 20, 300, 50);
 	yesB.setBounds(110, 80, 100, 30);
 	noB.setBounds(270, 80, 100, 30);
+	buttons.enableButtons();
 	yesB.addActionListener(new decisionListener(restartFrame));
 	noB.addActionListener(new noListener());
 }
