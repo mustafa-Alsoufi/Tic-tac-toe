@@ -13,13 +13,14 @@ public class decisionListener implements ActionListener {
 			for(int j = 0; j< 3; j ++)
 			{
 				buttons.buttons[i][j].setText(null);
-
+				
 			}
 		}
-		frame.dispose();
-		ticTacToe ttt = new ticTacToe();
-		ttt.frame.dispose();
+		frame.setVisible(false);
 		buttons.turn.setText("New Game");
+		buttons.count=0;
+		buttons.enableButtons();
+		ticTacToe.frame.dispose();
 		new buttons();
 
 	}

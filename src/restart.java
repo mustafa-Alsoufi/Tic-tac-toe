@@ -24,7 +24,6 @@ public restart()
 	restartLabel.setBounds(100, 20, 300, 50);
 	yesB.setBounds(110, 80, 100, 30);
 	noB.setBounds(270, 80, 100, 30);
-	buttons.enableButtons();
 	yesB.addActionListener(new decisionListener(restartFrame));
 	noB.addActionListener(new noListener());
 }

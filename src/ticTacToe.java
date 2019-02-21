@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class ticTacToe {
 	static JFrame frame = new JFrame("Tic Tac Toe Game");
-	JPanel panel = new JPanel(null);
+	static JPanel panel = new JPanel(null);
 	JPanel scorePanel = new JPanel(null);
 	Color Color_panel = Color.decode("#E5E5E5");
 	Color color_Score_panel = Color.decode("#586F7C");

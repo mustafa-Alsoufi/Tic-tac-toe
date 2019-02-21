@@ -7,9 +7,8 @@ public class buttons {
 	
     static JButton[][] buttons = new JButton [3][3];
     static JLabel turn = new JLabel("");
-	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
+	static Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
 	ticTacToe ttt = new ticTacToe();
-	int x=50,y=120;
 	static String[][] grid=new String[3][3];
 	static int count= 0;
 	
@@ -19,17 +18,18 @@ public class buttons {
 
 
 public void addButtons()	// Add buttons to the panel
-{
-	ttt.panel.add(turn);
+{	int x=50,y=120;
+	ticTacToe.panel.add(turn);
 	turn.setBounds (320, 280, 100, 50);
 	turn.setFont(font);
+	
 	for (int i=0;i<buttons.length;i++)
 	{
 		for (int j=0;j<buttons.length;j++)
 		{
 			
 			buttons[i][j] = new JButton();
-			ttt.panel.add(buttons[i][j]);
+			ticTacToe.panel.add(buttons[i][j]);
 			buttons[i][j].setBackground(Color.decode("#FFFFFF"));
 			//The position for the buttons
 			buttons[i][j].setBounds(x, y, 64, 64);	
@@ -58,6 +58,7 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 			if(grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][0]!= null)
 			{
 				turn.setText(null);
+				buttons[]
 				disableButtons(grid);
 				JOptionPane.showMessageDialog(null, grid[i][0] + " wins the game!"); // To display the winner
 				restart res = new restart();
@@ -124,23 +125,19 @@ public static void disableButtons(String array[][])
 		for(int j = 0; j< array.length; j ++)
 		{
 			buttons[i][j].setEnabled(false);
-		
 		}
-		
 	}
 }
 // Enable all the buttons
 public static void enableButtons()
 {
+
 	for(int i = 0; i< 3; i ++)
 	{
 		for(int j = 0; j< 3; j ++)
 		{
 			grid[i][j] = null;
 			buttons[i][j].setEnabled(true);
-			buttons[i][j].addActionListener(new click(buttons[i][j],turn,i,j) );
-
-			
 		}
 		
 	}
