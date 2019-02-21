@@ -36,15 +36,12 @@ import javax.swing.*;
 				button.removeActionListener(this);
 				label.setText("X's turn");
 			}
-			
+				
 				buttons.grid[row][column] = button.getText();
 				buttons.whoIsTheWinner();
 			
 		}
-		public click()
-		{
-			
-		}
+		
 		
 		public click(JButton button,JLabel label,int i, int j)
 		{

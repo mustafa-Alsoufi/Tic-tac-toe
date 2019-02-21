@@ -6,24 +6,48 @@ import javax.swing.*;
 public class buttons {
 	
     static JButton[][] buttons = new JButton [3][3];
-    static JLabel turn = new JLabel();
+    static JLabel turn = new JLabel("");
 	Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
-	String XorO="";
 	ticTacToe ttt = new ticTacToe();
 	int x=50,y=120;
 	static String[][] grid=new String[3][3];
-	static boolean winner= false;
-	private static JFrame frame = new JFrame();
 	static int count= 0;
 	
 	public buttons(){
-		//The position for the buttons
-	ttt.scorePanel.add(turn);
-	turn.setBounds (90, 150, 300, 50);
+		
+	ttt.panel.add(turn);
+	turn.setBounds (320, 280, 100, 50);
 	turn.setFont(font);
-	this.frame=frame;
 	addButtons();
 }
+
+
+public  void addButtons()	// Add buttons to the panel
+{
+	for (int i=0;i<buttons.length;i++)
+	{
+		for (int j=0;j<buttons.length;j++)
+		{
+			
+			buttons[i][j] = new JButton();
+			ttt.panel.add(buttons[i][j]);
+			buttons[i][j].setBackground(Color.decode("#FFFFFF"));
+			//The position for the buttons
+			buttons[i][j].setBounds(x, y, 64, 64);	
+			x = x + 66;
+			if (x > 182)
+			{
+				x=50;
+				y=y+66;
+			}	
+			
+			buttons[i][j].addActionListener(new click(buttons[i][j],turn,i,j) );
+
+		}
+	}
+
+}
+
 
 
 public static void whoIsTheWinner()	// getting who is winning the game.
@@ -37,7 +61,7 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 				turn.setText(null);
 				disableButtons(grid);
 				JOptionPane.showMessageDialog(null, grid[i][0] + " wins the game!"); // To display the winner
-				restart res = new restart(frame);
+				restart res = new restart();
 				
 				break;
 			}
@@ -49,7 +73,7 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 				turn.setText(null);
 				disableButtons(grid);
 				JOptionPane.showMessageDialog(null, grid[0][i] + " wins the game!"); // To display the winner
-				restart res = new restart(frame);
+				restart res = new restart();
 				break;
 			}
 		
@@ -60,7 +84,7 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 				turn.setText(null);
 				disableButtons(grid);
 				JOptionPane.showMessageDialog(null, grid[0][0] + " wins the game!"); // To display the winner
-				restart res = new restart(frame);
+				restart res = new restart();
 				
 				break;
 			}
@@ -72,7 +96,7 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 				turn.setText(null);
 				disableButtons(grid);
 				JOptionPane.showMessageDialog(null, grid[0][2] + " wins the game!"); // To display the winner
-				restart res = new restart(frame);
+				restart res = new restart();
 				break;
 			}
 			
@@ -87,36 +111,12 @@ public static void whoIsTheWinner()	// getting who is winning the game.
 			{
 				JOptionPane.showMessageDialog(null, " It's a tie!"); // To display it's a tie
 				disableButtons(grid);
-				restart res = new restart(frame);
+				restart res = new restart();
 				
 			}
 			
 }
-public  void addButtons()	// Add buttons to the panel
-{
-	for (int i=0;i<buttons.length;i++)
-	{
-		for (int j=0;j<buttons.length;j++)
-		{
-			
-			buttons[i][j] = new JButton();
-			ttt.panel.add(buttons[i][j]);
-			buttons[i][j].setBackground(Color.decode("#FFFFFF"));
 
-			buttons[i][j].setBounds(x, y, 64, 64);
-			x = x + 66;
-			if (x > 182)
-			{
-				x=50;
-				y=y+66;
-			}	
-
-			buttons[i][j].addActionListener(new click(buttons[i][j],turn,i,j) );
-
-		}
-	}
-
-}
 // Disable all the buttons
 public static void disableButtons(String array[][])
 {

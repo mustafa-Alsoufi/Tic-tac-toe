@@ -1,4 +1,6 @@
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class restart {
@@ -8,9 +10,10 @@ JLabel restartLabel = new JLabel("Would you like to restart the game?");
 Font font = new Font("Microsoft Sans Serif",Font.ROMAN_BASELINE,18);
 JButton yesB = new JButton("Yes");
 JButton noB = new JButton("No");
-public restart(JFrame frame)
+public restart()
 {
-	frame.setVisible(false);
+	ticTacToe ttt = new ticTacToe();
+	//frame.setVisible(false);
 	buttons.enableButtons();
 	restartLabel.setFont(font);
 	restartFrame.setSize(512, 200);
@@ -24,5 +27,8 @@ public restart(JFrame frame)
 	yesB.setBounds(110, 80, 100, 30);
 	noB.setBounds(270, 80, 100, 30);
 	yesB.addActionListener(new decisionListener(restartFrame));
+	noB.addActionListener(new noListener());
 }
+
+
 }

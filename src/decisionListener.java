@@ -13,13 +13,13 @@ public class decisionListener implements ActionListener {
 			for(int j = 0; j< 3; j ++)
 			{
 				buttons.buttons[i][j].setText("");
+				buttons.enableButtons();
 			}
 		}
-		ticTacToe tt = new ticTacToe();
-		buttons b = new buttons();
-		frame.setVisible(false);
-	//	frame.dispose ();
-        ticTacToe.main (null);
+		//buttons b = new buttons();
+		frame.dispose();
+		buttons.turn.setText("New Game");
+		ticTacToe ttt = new ticTacToe();
 	}
 	public decisionListener(JFrame restartFrame)
 	{

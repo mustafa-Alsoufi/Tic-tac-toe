@@ -16,7 +16,7 @@ public class ticTacToe {
 	
 	// This is to add a logo to my game
 	
-	static JLabel logo = new JLabel();
+	JLabel logo = new JLabel();
 	URL mainp = ticTacToe.class.getResource(
             "/img/2.jpg");
 	ImageIcon pic = new ImageIcon(new ImageIcon(mainp)
@@ -35,7 +35,7 @@ public class ticTacToe {
 	{
 		frame.setSize(497, 380);
 		frame.setVisible(true);
-		frame.setResizable(false);
+		//frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		logo.setIcon(pic);
 		panel.setBackground(Color_panel);
@@ -44,14 +44,12 @@ public class ticTacToe {
 		panel.add(dScore);
 		panel.setBackground(Color.WHITE);
 		panel.add(scorePanel);
-		scorePanel.setBounds(230,130,240,220);
 		scorePanel.setBackground(Color_panel);
 		xScore.setBounds(290, 130, 100, 50);
 		oScore.setBounds(290, 170, 100, 50);
 		dScore.setBounds(290, 220, 100, 50);
 		logo.setBounds(0, 0, 490, 100);
 		panel.add(logo);
-		scorePanel.setBackground(Color.white);
 
 		frame.add(panel);
 		xScore.setFont(font);
