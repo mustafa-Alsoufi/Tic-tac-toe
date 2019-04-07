@@ -4,7 +4,11 @@ The player who succeeds in placing three of their marks in a horizontal, vertica
 
 The players would have the option to play the game again, by a "restart" button.
 They can see their scores.
+
 ![](src/img/1.png)
+
 ![](src/img/2.PNG)
+
 ![](src/img/3.png)
-![](src/img/3.PNG)
+
+![](src/img/4.PNG)
